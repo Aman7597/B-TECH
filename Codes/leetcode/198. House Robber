@@ -1,0 +1,22 @@
+class Solution {
+public:
+    int robb(vector<int>& v,vector<int>& nums,int i){
+        if(i<0) return 0;
+        if(i==0) return nums[i];
+        
+        if(v[i]!=-1) return v[i];
+        
+        return v[i]=max(nums[i]+robb(v,nums,i-2),robb(v,nums,i-1));
+        
+    }
+    
+
+    int rob(vector<int>& nums) {
+        int m=nums.size();
+        vector<int>v(m,-1);
+        return robb(v,nums,m-1);
+        
+        
+        
+    }
+};
