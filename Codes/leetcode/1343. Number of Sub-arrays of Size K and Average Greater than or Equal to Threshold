@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int numOfSubarrays(vector<int>& arr, int k, int t) {
+        int ans=0;
+        t=t*k;
+        int m=arr.size();
+        int c=0;
+        for(int i=0;i<k;i++){
+            c+=arr[i];
+        }   
+         for(int i=0;i<m-k;i++){
+           if(c>=t) ans++;
+             c=c-arr[i]+arr[i+k];
+          }
+         if(c>=t) ans++;
+        
+        return ans;
+    }
+};
