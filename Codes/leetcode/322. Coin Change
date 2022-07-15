@@ -1,0 +1,12 @@
+class Solution {
+public:
+    int coinChange(vector<int>& coins, int amount) {
+        
+        if(amount==0)return 0;
+            int ans= INT_MAX;
+        for(int coin :coins)
+            if (amount-coin>0)
+            ans=min(ans+1LL,coinChange(coins,amount-coin)+1LL);
+        return ans;
+    }
+};
