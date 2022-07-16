@@ -1,0 +1,45 @@
+class Solution {
+public:
+
+ void rec(ListNode* head,int z){
+        z--;
+        if(z>0){
+        rec(head->next,z);}
+     head->next->next=head;
+     
+        
+    }
+    
+    int pairSum(ListNode* head) {
+     
+        ListNode* temp=head;
+        ListNode* right=head;
+        int n=0;
+        while(temp->next){
+             temp=temp->next;
+            n++;
+           
+        }
+        int z=n/2;
+        z++;
+        int ans=0;
+        for(int i=0;i<z-1;i++){
+            
+            right=right->next;
+           
+        }
+        ListNode* t=right;
+       right=right->next; 
+         z--;
+        rec(head,z);
+    z++;
+              for(int i=0;i<z;i++){  
+                  ans=max(ans,t->val+right->val);
+                  t=t->next,right=right->next; 
+                  
+              }
+        return ans;
+        
+        
+    }
+};
