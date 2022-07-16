@@ -1,0 +1,229 @@
+class Solution {
+public: 
+    string roman(int num,string v){
+       int z=num%10;
+        num=num/10;
+        switch(z){
+            case 0:
+                break;
+                                case 1:
+                v.push_back('I');
+                break;           case 2:
+                v.push_back('I');
+            
+               v.push_back('I');
+                
+                break;            case 3:
+               v.push_back('I');
+                
+               v.push_back('I');
+                
+                v.push_back('I');
+                
+                break;            case 4:
+                v.push_back('V');
+                
+                v.push_back('I');
+                
+                break;            case 5:
+                v.push_back('V');
+                
+                break;            case 6:
+               v.push_back('I');
+                
+                 v.push_back('V');
+                
+                break;            case 7:
+                v.push_back('I');
+                
+                v.push_back('I');
+                
+                v.push_back('V');
+                
+                break;            case 8:
+                v.push_back('I');
+                
+                v.push_back('I');
+                
+                v.push_back('I');
+                
+               v.push_back('V');
+                
+                break;            case 9:
+                
+                v.push_back('X');
+                
+                v.push_back('I');
+                
+                break;
+            default: return v;
+                
+        }
+        
+                z=num%10;  
+                num=num/10;
+        switch(z){
+                 case 0:
+                break;
+                         case 1:
+                v.push_back('X');
+                
+                break;
+                                 case 2:
+                v.push_back('X');
+                
+                v.push_back('X');
+                
+                break;            case 3:
+                v.push_back('X');
+                
+                v.push_back('X');
+                
+               v.push_back('X');
+                
+                break;            case 4:
+                v.push_back('L');
+                
+                v.push_back('X');
+                
+                break;            case 5:
+                v.push_back('L');
+                
+                break;            case 6:
+                v.push_back('X');
+                
+                v.push_back('L');
+                
+                break;            case 7:
+                v.push_back('X');
+                
+                v.push_back('X');
+                
+                v.push_back('L');
+                
+                break;            case 8:
+              v.push_back('X');
+                
+               v.push_back('X');
+                
+                v.push_back('X');
+                
+                v.push_back('L');
+                
+                break;            case 9:
+                
+                v.push_back('C');
+                
+                v.push_back('X');
+                
+                break;
+            default: return v;
+                
+        }
+         z=num%10;  
+                num=num/10;
+        switch(z){
+                 case 0:
+                break;
+                         case 1:
+                v.push_back('C');
+                
+                break;
+                                 case 2:
+                v.push_back('C');
+                
+                v.push_back('C');
+                
+                break;            case 3:
+                v.push_back('C');
+                
+                v.push_back('C');
+                
+                v.push_back('C');
+                
+                break;            case 4:
+                v.push_back('D');
+                
+                v.push_back('C');
+                
+                break;            case 5:
+                v.push_back('D');
+                
+                break;            case 6:
+                v.push_back('C');
+                
+                v.push_back('D');
+            
+                break;            case 7:
+                v.push_back('C');
+                
+                v.push_back('C');
+                
+                v.push_back('D');
+                
+                break;            case 8:
+                v.push_back('C');
+                
+               v.push_back('C');
+                
+               v.push_back('C');
+                
+               v.push_back('D');
+                
+                break;            case 9:
+                
+                v.push_back('M');
+                
+                v.push_back('C');
+                
+                break;
+            default: return v;
+                
+        }
+        z=num%10;  
+                num=num/10;
+        switch(z){
+                 case 0:
+                break;
+                         case 1:
+                v.push_back('M');
+                
+                break;
+                                 case 2:
+                v.push_back('M');
+                
+               v.push_back('M');
+                
+                break;            case 3:
+                v.push_back('M');
+                
+                v.push_back('M');
+                
+                v.push_back('M');
+                
+                break;    
+        
+         default: return v;
+        
+    }
+        return v;
+    
+    }
+    
+    
+    string intToRoman(int num) {
+      string s;
+        s= roman(num,s);
+          string a;
+        int z=s.size();
+        for(int i=0;i<z;i++){
+             a.push_back(s[z-i-1]); 
+            
+            
+        }
+        
+        return a;
+        }
+        
+    
+};
