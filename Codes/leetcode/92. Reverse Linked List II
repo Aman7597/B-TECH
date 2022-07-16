@@ -1,0 +1,92 @@
+class Solution {
+public:
+    void rev(ListNode* head){
+        if(head->next!=0) {
+        
+        if(head->next->next){
+            rev(head->next);
+        }
+        head->next->next=head;
+    
+    }
+    }
+    
+    
+    ListNode* reverseBetween(ListNode* head, int left, int right) {
+        if(head==0) return 0;
+        if(left==right) return head;
+        if(head->next==0) return head;
+             if(head->next->next==0){
+              ListNode* r;
+           r=head->next;
+            head->next=0;
+            r->next=head;
+            
+            return r;
+        }
+       
+            if(left==1&&right>2){
+                 ListNode* r=head;
+                 ListNode* lef=head;
+                 ListNode* lef1=head->next;
+                for(int i=0;i<right-1;i++){
+                    r=r->next;
+                }
+             ListNode* rr=r->next;
+                 ListNode* lef2=lef1->next;
+                while(lef2!=r){
+                    lef1->next=lef;
+                    lef=lef1;
+                    lef1=lef2;    
+                    lef2=lef2->next;
+               }
+                lef1->next=lef;
+                lef2->next=lef1;
+                head->next=rr;
+                
+                return lef2;
+         }
+            if(left==1&&right==2){
+                  ListNode* r=head->next;
+               head->next=head->next->next;
+                 r->next=head;  
+              
+            return r;
+                
+            }
+            if(left==2&&right==3){
+             ListNode* rr=head->next->next->next;
+               
+                  ListNode* r=head->next;
+               r->next->next=r;
+                 head->next=r->next;  
+                
+                     r->next=rr ;
+            return head;
+               
+    }
+        ListNode* rig=head;
+        ListNode* rig1=head;
+        ListNode*  lef=head;
+        ListNode*  left1=head;
+        
+        for(int i=0;i<left-2;i++){
+            lef=lef->next;
+        }
+        left1=lef->next;
+        for(int i=0;i<right-1;i++){
+            rig=rig->next;
+        }
+        rig1=rig->next;
+        
+     
+        lef->next=0;
+        rig->next=0;
+        rev(left1);
+        left1->next=rig1;
+        lef->next=rig;
+      
+        return head;
+       
+    }
+};
