@@ -1,12 +1,38 @@
 class Solution {
 public:
-    int coinChange(vector<int>& coins, int amount) {
+    
+    
+    int cc(vector<int>& coins, int amount, int i, vector<vector<int>>&v){
+        if(i==0){
+        if(amount==0||amount%coins[i]==0) return amount/coins[0]; 
+              return 1000000;
+        }
+        if(v[i][amount]!=-1) return v[i][amount];
+        int take=1000000;
         
-        if(amount==0)return 0;
-            int ans= INT_MAX;
-        for(int coin :coins)
-            if (amount-coin>0)
-            ans=min(ans+1LL,coinChange(coins,amount-coin)+1LL);
-        return ans;
+        if(amount>=coins[i])
+            take=1+ cc(coins,amount-coins[i],i,v);
+        int nottake= cc(coins,amount,i-1,v);
+       return v[i][amount]=min(take,nottake);
+      
+         
+        
+    }
+    
+    
+    
+    
+    int coinChange(vector<int>& coins, int amount) {
+    if(amount==0) return 0;
+        int m=coins.size()-1;
+        if(m==0) {
+            if(amount%coins[0]==0){
+            return amount/coins[0];
+            }
+            else return -1;}
+        vector<vector<int>>v(m+2,vector<int>(amount+1,-1));
+        int z= cc(coins,amount,m,v);
+        if(z>100000) return -1;
+        return z;
     }
 };
