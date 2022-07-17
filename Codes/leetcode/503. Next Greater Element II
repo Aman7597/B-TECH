@@ -1,0 +1,42 @@
+class Solution {
+public:
+    vector<int> nextGreaterElements(vector<int>& n) {
+        vector<int> z(n.begin(),n.end());
+        for(int i=0;i<n.size();i++){
+            z.push_back(n[i]);  
+        }
+   
+        stack<int>s;
+        vector<int> v;
+         for(int i=z.size()-1;i>=0;i--){ 
+        if(s.empty()){
+           v.push_back(-1);
+            s.push(z[i]);
+        }
+             else{
+                  while(!s.empty()){
+                        if(z[i]>=s.top()){
+                        s.pop();
+                              }
+                        else{
+                         v.push_back(s.top());
+                        s.push(z[i]);
+                            break;
+                            }
+                                }
+                if(s.empty()){
+                  v.push_back(-1);
+                    s.push(z[i]);
+                            }
+             
+             }
+         }
+        
+      int kk=n.size();
+        
+        v.erase(v.begin(),v.begin()+kk);
+        reverse(v.begin(),v.end());
+        return v;
+        
+    }
+};
