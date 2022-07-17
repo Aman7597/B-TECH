@@ -1,0 +1,58 @@
+class Solution {
+public:
+    
+   
+    
+    
+    vector<int> nextGreaterElement(vector<int>& n1, vector<int>& n2) {
+        
+        int m=n1.size();
+        int n=n2.size();
+        stack<int>s;
+        vector<int>v; 
+        for(int i=n-1;i>=0;i--){
+            if(s.empty()){
+                          s.push(n2[i]);
+            v.push_back(-1);}
+            else {
+                  while(!s.empty()){
+                      if(s.top()<=n2[i] ){
+                          s.pop();
+                          
+                      }
+                      
+                      else{
+                          v.push_back(s.top());
+                          s.push(n2[i]);
+                          break;
+                          
+                      }
+                  }
+                if(s.empty()){
+                    s.push(n2[i]);
+                     v.push_back(-1);
+                }
+                
+                
+                
+                }
+                   
+        }
+         reverse(v.begin(), v.end());
+        vector<int>an;
+        
+        for(int i=0;i<m;i++){
+            for(int j=0;j<n;j++){
+                if(n1[i]==n2[j]){
+                    an.push_back(v[j]);
+                }
+            }
+        }
+        
+        
+       
+        
+        
+       return an; 
+    }
+};
