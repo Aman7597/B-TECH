@@ -1,0 +1,21 @@
+class Solution {
+public:
+    vector<int> findDisappearedNumbers(vector<int>& n) {
+        map<int,int>m;
+        vector<int>v;
+        for(auto num:n){
+            m[num]++;
+        }
+        map<int,int>::iterator i;
+        i=m.begin();
+        for(int it=1;it<=n.size();it++ ){
+            if(it!=i->first){
+                v.push_back(it);   
+            }
+            else i++;
+        }
+        
+        return v;
+        
+    }
+};
