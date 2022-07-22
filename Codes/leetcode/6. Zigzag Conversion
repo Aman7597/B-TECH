@@ -1,0 +1,43 @@
+class Solution {
+public:
+    string convert(string s, int R) {
+        if(R==1) return s;
+        
+        
+        
+    string s1[R];
+        
+        int k=0;
+        int j=0;
+        
+        for(int i=0;i<s.size();i++){
+        if(k<R&&j==0){
+         s1[k].push_back(s[i]);
+            k++;
+       }
+            else{
+                if(k==R){
+               j=1;
+                    k=k-2;
+                }
+                 if(k>0){
+            s1[k].push_back(s[i]);
+                k--;
+             }
+                else{
+                    j=0;
+                 s1[k].push_back(s[i]);
+                    k++;
+                }
+            }
+        }
+        string z;
+        for(int i=0;i<R;i++){
+            z+=s1[i];
+        }
+        
+        
+        
+        return z;
+    }
+};
