@@ -1,0 +1,18 @@
+class Solution {
+public:
+    int maxSubArray(vector<int>& n) {
+        int sum=0;
+        int csum=0;
+        for(int i=0;i<n.size();i++){
+            sum+=n[i];
+            if(sum<0) sum=0;
+            csum=max(csum,sum);
+        }
+         sort(n.begin(),n.end());
+        if(n[n.size()-1]>=0)
+         return csum;
+        
+        return n[n.size()-1];
+        
+    }
+};
