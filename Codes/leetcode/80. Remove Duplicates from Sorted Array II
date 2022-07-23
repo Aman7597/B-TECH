@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int removeDuplicates(vector<int>& a) {
+        int z=a.size();
+        int k=0;
+        
+        for(int i=0;i<z-2;i++){   
+            if(a[i]==a[i+1]&&a[i]==a[i+2]){
+                k++;
+                i--;
+                for(int j=i+2;j<z-1;j++){
+                    a[j]=a[j+1];
+                   } 
+                z--;
+                }     
+        }
+        return z;
+      }
+};
