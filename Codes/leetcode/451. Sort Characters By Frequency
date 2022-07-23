@@ -1,0 +1,38 @@
+bool cmp(pair<char,int>&a,pair<char,int>&b){
+    return a.second>b.second;
+}
+
+class Solution {
+public:
+    string frequencySort(string s) {
+        int z=s.length();
+        map<char,int>m;
+        for(int i=0;i<z;i++){
+            m[s[i]]++;
+        }
+        
+        vector<pair<char,int>>v;
+        for(auto& it:m){
+            v.push_back(it);
+            }
+        sort(v.begin(),v.end(),cmp);
+        string g;
+        for(int i=0;i<v.size();i++){
+            int k=v[i].second;
+            for(int j=0;j<k;j++){
+                g.push_back(v[i].first);
+            }
+            
+            
+            
+        }
+        
+        
+        
+        return g;
+        
+        
+        
+        
+    }
+};
