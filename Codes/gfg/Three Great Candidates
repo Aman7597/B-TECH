@@ -1,0 +1,17 @@
+class Solution{   
+public:
+    long long maxProduct(int n[], int z) {
+        // code here
+      sort(n,n+z);
+        
+        long long a1=n[0];
+         long long a2=n[1];
+          long long d=n[z-1];
+           long long c=n[z-2];
+            long long v=n[z-3];
+        
+        
+         return max(a1*a2*d , v*d*c);
+        
+    }
+};
