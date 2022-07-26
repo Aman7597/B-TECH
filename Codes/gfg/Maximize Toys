@@ -1,0 +1,30 @@
+
+class Solution{
+public:
+    int toyCount(int N, int K, vector<int> a)
+    {
+        // code here
+        
+        sort(a.begin(),a.end());
+        int i=0;
+        long int z=0;
+        for(int j=0;j<N;j++){
+            z+=a[j];
+            
+            
+        }
+        if(K>=z) return N;
+        
+        
+        while(K>0){
+            K-=a[i];
+            i++;
+            
+        }
+        if(K==0) return i;
+        return i-1;
+        
+        
+        
+    }
+};
