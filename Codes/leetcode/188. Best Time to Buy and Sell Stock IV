@@ -1,0 +1,29 @@
+class Solution {
+public:
+   
+    
+       int f(vector<int>& p,int l,int b,int i,vector<vector<vector<int>>>&v){
+       if(l==0)  return 0;
+        if(i==p.size()) return 0;
+     
+        if(v[i][b][l]!=-1) return v[i][b][l];
+        
+       
+        if(b){
+             return v[i][b][l]= max(-p[i]+f(p,l,0,i+1,v),f(p,l,1,i+1,v));
+        }
+        
+               return v[i][b][l]=max(p[i]+f(p,l-1,1,i+1,v),f(p,l,0,i+1,v));
+            
+        
+ 
+      
+    }
+    
+     int maxProfit(int k,vector<int>& p) {
+        vector<vector<vector<int>>>v(p.size(),vector<vector<int>>(3,vector<int>(k+1,-1)));
+       return  f(p,k,1,0,v);
+      
+    }
+    
+};
