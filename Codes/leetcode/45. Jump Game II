@@ -1,0 +1,30 @@
+class Solution {
+public:
+     int f(vector<int>& n,int z,int i, vector<int>&v){
+         if(i==z-1) return 0;
+        int mini=1e7;
+        if(v[i]!=-1) return v[i];
+        for(int j=1;j<=n[i];j++){
+             if(i+j<z){
+            mini=min(1+f(n,z,i+j,v),mini);
+             }   
+       }
+        return v[i]=mini;
+                  
+   }
+    
+    
+   int jump(vector<int>& nums) {
+         int z=nums.size();
+       if(z==1) return 0;
+       if(z==2){
+            return 1;
+       }
+ 
+       vector<int>v(z+1,-1);
+       
+        return f(nums,z,0,v);
+        
+    }
+    
+};
