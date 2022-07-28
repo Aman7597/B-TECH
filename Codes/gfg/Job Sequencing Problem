@@ -1,0 +1,53 @@
+bool cmp(Job a,Job b){
+    
+    return a.profit>b.profit;
+    
+}
+
+class Solution 
+{
+    public:
+    //Function to find the maximum profit and the number of jobs done.
+    vector<int> JobScheduling(Job a[], int n) 
+    { 
+        // your code here
+        int d=0;
+          for(int i=0;i<n;i++){
+              d=max(d,a[i].dead);
+              
+          }
+        
+        bool flag[d+1]={false};
+        vector<int> v;
+        sort(a,a+n,cmp);
+        int n1=0,profit=0;
+        
+        for(int i=0;i<n;i++){
+               for(int j=a[i].dead;j>0;j--){
+                if(!flag[j]){
+                    n1++;
+                    profit+=a[i].profit;
+                    flag[j]=true;
+                    break;
+                }
+                
+                
+                
+            }
+            
+            
+            
+            
+        }
+        v.push_back(n1);
+        v.push_back(profit);
+        
+        return v;
+        
+        
+        
+        
+        
+        
+    } 
+};
